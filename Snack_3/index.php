@@ -48,6 +48,13 @@ $posts = [
     ],
 ];
 
+$day = array_keys($posts);
+
+/* echo '<pre>';
+var_dump($posts);
+var_dump(array_keys($posts));
+echo '</pre>'; */
+
 
 ?>
 
@@ -63,7 +70,34 @@ $posts = [
     
     <h1>Posts</h1>
 
-    
+    <div>
+        <?php for ($i=0; $i < count($day) ; $i++) { 
+            //var_dump($day[$i]);
+            $dayOfPosts = $day[$i]; ?>
+        
+            <div style="margin-bottom: 50px">
+                <h3 style="color: green"><?php echo $dayOfPosts ?></h3>
+
+
+                <?php for ($x=0; $x < count($posts[$dayOfPosts]) ; $x++) { 
+                    $post = $posts[$dayOfPosts][$x];
+                    /* echo '<pre>';
+                    var_dump($post);
+                    echo '</pre>'; */
+                ?>
+
+                    <p><strong><?php echo $post['title'] ?></strong></p>
+                    <p><?php echo $post['text'] ?></p>
+                    <p><em><?php echo $post['author'] ?></em></p>
+
+                <?php }; ?>
+        
+            </div>
+
+        <?php }; ?>
+
+
+    </div>
   
 
 </body>
